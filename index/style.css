@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+}
+
+/*#content {*/
+/*    width: 100%;*/
+/*    height: 100vh;*/
+/*    */
+/*    position: absolute;*/
+/*    top: 110vh;*/
+/*}*/
+
+/*#logo { */
+/*    height: 15vh;*/
+/*} */
+
+/*#logo .circle{*/
+/*    stroke-dasharray: 220.7279052734375px;*/
+/*    stroke-dashoffset: 882.91162109375px;*/
+/*    animation: svg-grow 5000ms infinite linear forwards 0ms;*/
+/*    text-shadow: 40px 40px 40px black;*/
+
+/*}*/
+
+/*#logo .text:nth-child(1){*/
+/*    */
+/*    stroke-dasharray: 400.5840148925781px;*/
+/*    stroke-dashoffset: 400.5840148925781px;*/
+/*    fill-opacity: 0;*/
+/*    animation: svg-grow-text 1000ms ease-out forwards 0ms, svg-grow-fill 400ms ease-out forwards 500ms;*/
+/*}*/
+
+/*#logo .text:nth-child(2) {*/
+/*    */
+/*    stroke-dasharray: 370.6418762207031px;*/
+/*    stroke-dashoffset: 370.6418762207031px;*/
+/*    animation: svg-grow-text 800ms ease-out forwards 0ms;*/
+/*}*/
+
+#intelligence {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 50vw;
+    width: 90vw;
+}
+
+#intelligence > *:nth-child(1){animation: svg-grow 1000ms ease-out forwards 0ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 226.9439697265625px; stroke-dashoffset: 226.9439697265625px;}
+#intelligence > *:nth-child(2){animation: svg-grow 1000ms ease-out forwards 200ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 604.484008789062px; stroke-dashoffset: 604.4840087890625px;}
+#intelligence > *:nth-child(3){animation: svg-grow 1000ms ease-out forwards 400ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 336.6719970703125px; stroke-dashoffset: -336.6719970703125px;}
+#intelligence > *:nth-child(4){animation: svg-grow 1000ms ease-out forwards 600ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 463.9679870605469px; stroke-dashoffset: -463.9679870605469px;}
+#intelligence > *:nth-child(5){animation: svg-grow 1000ms ease-out forwards 800ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 297.2159729003906px; stroke-dashoffset: -297.2159729003906px;}
+#intelligence > *:nth-child(6){animation: svg-grow 1000ms ease-out forwards 1000ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 297.2159729003906px; stroke-dashoffset: -297.2159729003906px;}
+#intelligence > *:nth-child(7){animation: svg-grow 1000ms ease-out forwards 1200ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 226.94400024414062px; stroke-dashoffset: -226.94400024414062px;}
+#intelligence > *:nth-child(8){animation: svg-grow 1000ms ease-out forwards 1400ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 635.7135009765625px; stroke-dashoffset: -635.7135009765625px;}
+#intelligence > *:nth-child(9){animation: svg-grow 1000ms ease-out forwards 1600ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 463.96795654296875px; stroke-dashoffset: -463.96795654296875px;}
+#intelligence > *:nth-child(10){animation: svg-grow 1000ms ease-out forwards 1800ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 604.4829711914062px; stroke-dashoffset: -604.4829711914062px;}
+#intelligence > *:nth-child(11){animation: svg-grow 1000ms ease-out forwards 2000ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 508.5526123046875px; stroke-dashoffset: -508.5526123046875px;}
+#intelligence > *:nth-child(12){animation: svg-grow 1000ms ease-out forwards 2200ms, svg-fill 1000ms ease-out forwards 3200ms;stroke-dasharray: 463.96795654296875px; stroke-dashoffset: -463.96795654296875px;}
+
+#intelligence * {
+    animation: svg-fill 1000ms ease-out forwards 3200ms;
+    fill-opacity: 0;
+}
+
+@keyframes svg-grow {
+    to {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes svg-grow-ring {
+    to {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes svg-grow-text {
+    to { 
+        stroke-dashoffset: 0;
+        transform: translate(-15%, -15%) scale(1.3, 1.3);
+    }
+}
+
+@keyframes svg-grow-fill {
+    
+    to { 
+        fill-opacity: 1;
+    }
+}
+
+@keyframes svg-fill {
+    to { 
+        fill-opacity: 1;
+    }
+}
+
