@@ -3,4 +3,10 @@ new fullpage('#fullpage', {
     responsiveWidth: 0,
     responsiveHeight: 0,
     responsiveSlides: false,
+    onLeave: (origin, destination, direction) => {
+        switch (destination.index) {
+            case 2:
+            break;
+        }
+    }
 });
