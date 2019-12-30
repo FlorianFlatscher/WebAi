@@ -4,26 +4,11 @@
     margin: 0;
 }
 
-nav {
-    position: sticky;
-    z-index: 4;
-    background-color: white;
-}
 
-nav a {
-    color: #776DB7;
-}
-
-.s1 *{
-    z-index: 3;
-}
-
-.s1 .background {
+.background {
     position: absolute;
-
     top: 0;
     left: 0;
-    z-index: 2;
     width: 100vw;
     height: 100vh;
     background-size: 10px 10px;
@@ -33,110 +18,13 @@ nav a {
     animation: backgroundGrow 1000ms ease-out forwards 3200ms;
 }
 
-.s1  .background2 {
-    z-index: 2;
+.background2 {
     background: linear-gradient(22.5deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 255), rgba(255, 255, 255, 255), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
     height: 100vh;
     width: 100vw;
     position: absolute;
     top: 0;
 }
-
-.s1  .background3 {
-    z-index: 1;
-    background-color: white;
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-}
-
-.s2 .container {
-    padding-left: 5%;
-    padding-right: 5%;
-
-    height: 80%;
-    width: 100vw;
-    max-width: none;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.s2 .container *{
-    border-radius: 14px;
-    flex-grow: 1;
-    background-color: white;
-    height: 50%;
-    width: 25%;
-    margin: 5px;
-}
-
-.s2 .container *:nth-child(1){
-    position: relative;
-    top: 0%;
-}
-
-.s2 .container *:nth-child(2){
-    position: relative;
-    top: 16.666%;
-}
-
-.s2 .container *:nth-child(3){
-    position: relative;
-    top: 33.333%;
-}
-
-.s2 .container *:nth-child(4){
-    position: relative;
-    top: 50%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*#content {*/
-/*    width: 100%;*/
-/*    height: 100vh;*/
-/*    */
-/*    position: absolute;*/
-/*    top: 110vh;*/
-/*}*/
-
-/*#logo { */
-/*    height: 15vh;*/
-/*} */
-
-/*#logo .circle{*/
-/*    stroke-dasharray: 220.7279052734375px;*/
-/*    stroke-dashoffset: 882.91162109375px;*/
-/*    animation: svg-grow 5000ms infinite linear forwards 0ms;*/
-/*    text-shadow: 40px 40px 40px black;*/
-
-/*}*/
-
-/*#logo .text:nth-child(1){*/
-/*    */
-/*    stroke-dasharray: 400.5840148925781px;*/
-/*    stroke-dashoffset: 400.5840148925781px;*/
-/*    fill-opacity: 0;*/
-/*    animation: svg-grow-text 1000ms ease-out forwards 0ms, svg-grow-fill 400ms ease-out forwards 500ms;*/
-/*}*/
-
-/*#logo .text:nth-child(2) {*/
-/*    */
-/*    stroke-dasharray: 370.6418762207031px;*/
-/*    stroke-dashoffset: 370.6418762207031px;*/
-/*    animation: svg-grow-text 800ms ease-out forwards 0ms;*/
-/*}*/
 
 #intelligence {
     position: absolute;
