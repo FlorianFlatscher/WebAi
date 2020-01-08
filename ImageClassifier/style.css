@@ -27,20 +27,34 @@
     display: none;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr;
 }
 
-#drop > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-
-#drop > div > * {
+#info * {
     text-align: center;
 }
 
-#drop > div > i {
+#classify > p {
+    text-align: left;
+    margin-left: 5%;
+}
+
+#drop > img {
+
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+#info > i {
     animation-name: pulse_animation;
     animation-duration: 5000ms;
     transform-origin:70% 70%;
@@ -50,8 +64,8 @@
 
 
 .imageToC {
-    height: 80%;
-
+    width: 94%;
+    margin-left: 3%;
 }
 
 @keyframes svg-grow-ring {
