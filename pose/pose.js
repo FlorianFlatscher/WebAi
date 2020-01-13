@@ -4,33 +4,26 @@ let poses = [];
 
 
 function setup() {
-
-    createCanvas(document.body.clientWidth * 0.95,  document.body.clientHeight * 0.95);
-
+    const can = createCanvas(1920, 1080);
+    const container = document.querySelector('#canvasContainer')
 
     video = createCapture(VIDEO);
-    const wVideo = video.width;
-    const hVideo = video.height;
-    video.size(width, height);
-
-    // Create a new poseNet method with a single detection
-    poseNet = ml5.poseNet(video, modelReady);
-    // This sets up an event that fills the global variable "poses"
-    // with an array every time new poses are detected
-    poseNet.on('pose', function(results) {
-        poses = results;
-    });
-    // Hide the video element, and just show the canvas
     video.hide();
+    video.size(width, height)
+    can.parent('#canvasContainer');
 
-    window.addEventListener('resize', () => {
-        console.log("loool");
-        if (document.body.clientWidth * 0.95 > document.body.clientHeight * 0.95) {
-            resizeCanvas((document.body.clientHeight * 0.95) * (wVideo / hVideo),document.body.clientHeight * 0.95);
-        } else {
+    const resize = (e) =>  {
+        const divW = container.clientWidth;
+        const newH = (divW/width) * height;
+        can.resize(divW, newH);
+        video.size(divW, newH);
+    }
+    window.addEventListener("resize",resize );
+    resize()
 
-        }
-        video.resize(width, height);
+    poseNet = ml5.poseNet(video, modelReady);
+    poseNet.on('pose', function(results) {
+       poses = results;
     });
 }
 
@@ -40,17 +33,15 @@ function modelReady() {
 
 function draw() {
     push();
-
+    console.log(height);
+    //background(0);
     translate(width, 0);
     scale(-1, 1);
     image(video, 0, 0, width, height);
     // We can call both functions to draw all keypoints and the skeletons
     drawKeypoints();
     drawSkeleton();
-
     pop();
-
-
 }
 
 // A function to draw ellipses over the detected keypoints
