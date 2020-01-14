@@ -31,6 +31,25 @@
     grid-template-columns: 1fr 1fr;
 }
 
+#drop > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#drop > div > * {
+    text-align: center;
+}
+
+#drop > div > i {
+    animation-name: pulse_animation;
+    animation-duration: 5000ms;
+    transform-origin:70% 70%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
 #info * {
     text-align: center;
 }

@@ -1,3 +1,25 @@
+.banner {
+    width: 100px;
+    display: grid;
+    grid-template-rows: repeat(fr, 3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -10,7 +32,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     background-size: 10px 10px;
     background-image: radial-gradient(#1CABBE 20%, transparent 20%);
     background-position: 0 0, 50px 50px;
@@ -20,7 +42,7 @@
 
 .background2 {
     background: linear-gradient(22.5deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 255), rgba(255, 255, 255, 255), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
     position: absolute;
     top: 0;
@@ -28,7 +50,7 @@
 
 #intelligence {
     position: absolute;
-    top: 50vh;
+    top: 45vh;
     transform: translate(0, -50%);
     margin-left: 2.5vw;
     height: auto;

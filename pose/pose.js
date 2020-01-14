@@ -33,7 +33,6 @@ function modelReady() {
 
 function draw() {
     push();
-    console.log(height);
     //background(0);
     translate(width, 0);
     scale(-1, 1);

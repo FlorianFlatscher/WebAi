@@ -60,5 +60,5 @@ function gotResult(error, results) {
     }
     // The results are in an array ordered by confidence.
     console.log(results);
-    drop.innerHTML = drop.innerHTML + "<div id='classify'><p>" + results[0].label + ": %" + 100 * results[0].confidence + "</p><p>" + results[1].label + ": %" + 100 * results[1].confidence + "</p><p>" + results[2].label + ": %" + 100 * results[2].confidence + "</p></div>";
+    drop.innerHTML = drop.innerHTML + "<div id='classify'><p>" + results[0].label + ": %" + Math.round(100 * results[0].confidence) + "</p><p>" + results[1].label + ": %" + Math.round(100 * results[1].confidence) + "</p><p>" + results[2].label + ": %" + Math.round(100 * results[2].confidence) + "</p></div>";
 }
