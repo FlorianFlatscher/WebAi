@@ -1,0 +1,14 @@
+body, html {
+    height: 100%;
+}
+
+#canvasContainer {
+    position: relative;
+    transform: translate(-50%, 0%);
+    left: 50%;
+
+    height: 90vh;
+    width: 95%;
+    overflow: hidden;
+}
+

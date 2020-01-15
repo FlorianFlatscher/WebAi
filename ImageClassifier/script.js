@@ -1,12 +1,12 @@
 let img;
 let classifier;
 
-const svg = document.querySelector("#loading");
+ const svg = document.querySelector("#loading");
 const drop = document.querySelector("#drop");
 const icon = document.querySelector("#drop div");
 
 function setup() {
-    svg.style.animation = "svg-grow-ring 1000ms infinite linear";
+
 }
 
 
@@ -15,12 +15,11 @@ function draw() {
 }
 
 function preload() {
+    svg.style.animation = "svg-grow-ring 1000ms infinite linear";
     classifier = ml5.imageClassifier('MobileNet', () => {
-        svg.style.display = "none";
-        svg.style.animation = "none";
 
 
-        drop.style.display = "flex";
+
         const dropzone = select('#drop');
         dropzone.dragOver(highlight);
         dropzone.dragLeave(unhighlight);
@@ -43,6 +42,11 @@ function preload() {
         function unhighlight() {
             dropzone.style('background-color', '#ffffff');
         }
+
+        drop.style.display = "flex";
+        svg.style.display = "none";
+        svg.style.animation = "none";
+
     });
 }
 

@@ -1,9 +1,9 @@
-nav {
+header, nav {
     position: sticky;
-    z-index: 4;
+
     background-color: white;
 }
 
 nav a {
-    color: #776DB7;
+    color: #5a5a5a!important;
 }
