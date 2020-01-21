@@ -1,7 +1,13 @@
 let video;
 let poseNet;
 let poses = [];
+let eye;
 
+let showEye;
+
+function preload () {
+    eye = loadImage("images/eye.png");
+}
 
 function setup() {
     const can = createCanvas(1920, 1080);
@@ -39,6 +45,7 @@ function draw() {
     image(video, 0, 0, width, height);
     // We can call both functions to draw all keypoints and the skeletons
     drawKeypoints();
+    if (!showEye)
     drawSkeleton();
     pop();
 }
@@ -49,17 +56,25 @@ function drawKeypoints()  {
     for (let i = 0; i < poses.length; i++) {
         // For each pose detected, loop through all the keypoints
         let pose = poses[i].pose;
-        for (let j = 0; j < pose.keypoints.length; j++) {
-            // A keypoint is an object describing a body part (like rightArm or leftShoulder)
-            let keypoint = pose.keypoints[j];
-            // Only draw an ellipse is the pose probability is bigger than 0.2
-            if (keypoint.score > 0.2) {
-                fill(255, 0, 0);
-                noStroke();
-                ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
+        if (!showEye) {
+            for (let j = 0; j < pose.keypoints.length; j++) {
+                // A keypoint is an object describing a body part (like rightArm or leftShoulder)
+                let keypoint = pose.keypoints[j];
+                // Only draw an ellipse is the pose probability is bigger than 0.2
+                if (keypoint.score > 0.2) {
+                    fill(255, 0, 0);
+                    noStroke();
+                    ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
+                }
             }
+        } else {
+            imageMode(CENTER);
+            image(eye, pose.leftEye.x, pose.leftEye.y, 40, 40);
+            image(eye, pose.rightEye.x, pose.rightEye.y, 40, 40);
         }
     }
+    imageMode(CORNER)
+
 }
 
 // A function to draw the skeletons
@@ -77,5 +92,8 @@ function drawSkeleton() {
     }
 }
 
+function mousePressed () {
+    showEye = !showEye;
+}
 
 

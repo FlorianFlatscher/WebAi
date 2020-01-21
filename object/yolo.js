@@ -1,6 +1,8 @@
 let video;
-let poseNet;
-let poses = [];
+let yolo;
+let results = [];
+
+
 
 
 function setup() {
@@ -12,70 +14,50 @@ function setup() {
     video.size(width, height)
     can.parent('#canvasContainer');
 
-    const resize = (e) =>  {
+    const resize = (e) => {
         const divW = container.clientWidth;
-        const newH = (divW/width) * height;
+        const newH = (divW / width) * height;
         can.resize(divW, newH);
         video.size(divW, newH);
     }
-    window.addEventListener("resize",resize );
+    window.addEventListener("resize", resize);
     resize()
 
-    poseNet = ml5.YOLO(video, modelReady);
-    poseNet.on('pose', function(results) {
-       poses = results;
-    });
+    yolo = ml5.YOLO(video, modelReady());
 }
 
 function modelReady() {
-
+    console.log("model loaded");
 }
+
+let last = true;
 
 function draw() {
-    push();
-    //background(0);
-    translate(width, 0);
-    scale(-1, 1);
-    image(video, 0, 0, width, height);
-    // We can call both functions to draw all keypoints and the skeletons
-    drawKeypoints();
-    drawSkeleton();
-    pop();
+    // if (last) {
+        image(video, 0, 0, width, height);
+        if (yolo.modelReady && !yolo.isPredicting) {
+            yolo.detect((err, r) => {
+                results = r;
+            });
+        }
+        last = false;
+    drawBounds();
+
+    // }
 }
 
-// A function to draw ellipses over the detected keypoints
-function drawKeypoints()  {
-    // Loop through all the poses detected
-    for (let i = 0; i < poses.length; i++) {
-        // For each pose detected, loop through all the keypoints
-        let pose = poses[i].pose;
-        for (let j = 0; j < pose.keypoints.length; j++) {
-            // A keypoint is an object describing a body part (like rightArm or leftShoulder)
-            let keypoint = pose.keypoints[j];
-            // Only draw an ellipse is the pose probability is bigger than 0.2
-            if (keypoint.score > 0.2) {
-                fill(255, 0, 0);
-                noStroke();
-                ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
-            }
-        }
+function mousePressed() {
+    last = true;
+}
+
+function drawBounds () {
+    for (let i = 0; i < results.length; i++) {
+        r = results[i];
+        stroke(0, 255, 0);
+        textSize(30);
+        text(r.label,width * r.x + 5,  height * r.y + 25);
+        noFill();
+        rect(width * r.x, height * r.y, width * r.w, height * r.h);
     }
 }
-
-// A function to draw the skeletons
-function drawSkeleton() {
-    // Loop through all the skeletons detected
-    for (let i = 0; i < poses.length; i++) {
-        let skeleton = poses[i].skeleton;
-        // For every skeleton, loop through all body connections
-        for (let j = 0; j < skeleton.length; j++) {
-            let partA = skeleton[j][0];
-            let partB = skeleton[j][1];
-            stroke(255, 0, 0);
-            line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
-        }
-    }
-}
-
-
 
